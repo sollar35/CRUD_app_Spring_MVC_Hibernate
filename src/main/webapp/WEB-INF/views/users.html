@@ -10,6 +10,7 @@
         <th>ID</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Age</th>
         <th>Actions</th>
       </tr>
 
@@ -17,9 +18,12 @@
         <td th:text="${user.id}"></td>
         <td th:text="${user.firstName}"></td>
         <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
         <td>
           <a th:href="@{/users/{id}/edit(id=${user.id})}">Edit</a>
-          <a th:href="@{/users/{id}/delete(id=${user.id})}">Delete</a>
+          <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" style="display:inline;">
+              <button type="submit">Delete</button>
+          </form>
         </td>
       </tr>
     </table>

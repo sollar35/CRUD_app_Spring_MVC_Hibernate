@@ -31,6 +31,8 @@ public class UserDaoImpl implements UserDao {
 
     public void delete(Long id) {
         User user = findById(id);
-        em.remove(user);
+        if (user != null) {
+            em.remove(user);
+        }
     }
 }

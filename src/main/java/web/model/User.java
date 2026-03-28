@@ -1,20 +1,26 @@
 package web.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Pattern(regexp = "^[A-Za-zА-Яа-я]+$")
     private String firstName;
+
+    @NotBlank
+    @Pattern(regexp = "^[A-Za-zА-Яа-я]+$")
     private String lastName;
+
+    @Min(1)
+    @Max(120)
     private int age;
 
     public Long getId() {
