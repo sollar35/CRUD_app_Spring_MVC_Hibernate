@@ -11,14 +11,20 @@
 <form th:action="@{/users}" th:object="${user}" method="post">
     <label>First name:</label>
     <input type="text" th:field="*{firstName}" />
+    <div th:if="${#fields.hasErrors('firstName')}"
+         th:errors="*{firstName}"></div>
     <br><br>
 
     <label>Last name:</label>
     <input type="text" th:field="*{lastName}" />
+    <div th:if="${#fields.hasErrors('lastName')}"
+         th:errors="*{lastName}"></div>
     <br><br>
 
     <label>Age:</label>
     <input type="number" th:field="*{age}" />
+    <div th:if="${#fields.hasErrors('age')}"
+         th:errors="*{age}"></div>
     <br><br>
 
     <button type="submit">Create</button>
